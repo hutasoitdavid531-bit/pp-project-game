@@ -77,3 +77,32 @@ int tampilkanMenu() {
         }
     } while (true);
 }
+int main() {
+    srand(time(0));
+    initscr();
+    cbreak();
+    noecho();
+    curs_set(0);
+    keypad(stdscr, TRUE);
+
+    start_color();
+    init_pair(1, COLOR_GREEN, COLOR_BLACK);
+    init_pair(2, COLOR_CYAN, COLOR_BLACK);
+
+    tampilkanLoading();
+
+    while (true) {
+        clear();
+        refresh();
+        int pilihan = tampilkanMenu();
+
+        if (pilihan == 0) {
+            pratinjauArena();
+        } else {
+            break;
+        }
+    }
+
+    endwin();
+    return 0;
+}
